@@ -1,0 +1,62 @@
+﻿ #!/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+clear;
+echo -e "\033[33m=========================================================================\033[0m"
+echo -e "\033[36m                   欢迎使用吾爱免流一键OpenVPN脚本\033[0m"
+echo ""
+echo -e "\033[31m                      【鄙视一切收费脚本】\033[0m"
+echo ""
+echo -e "\033[32m        请选择安装版本：\033[0m"
+echo -e "\033[32m                       1.常规脚本\033[0m"
+echo -e "\033[32m                       2.HTTP转接脚本\033[0m"
+echo -e "\033[32m                       3.流控脚本\033[0m"
+echo -e "\033[32m                       4.一键无限制锐速脚本\033[0m"
+echo -e "\033[31m                       CentOS6.4以下请先执行yum update -y\033[0m"
+echo ""
+echo -e "\033[33m==========================================================================\033[0m"
+echo -n "输入选项: " 
+read mode
+if [ -z $mode ] 
+then
+echo -e "安装类型：\033[32m流控脚本\033[0m" ; 
+wget http://mirrors.52ml.org/Panel.sh >/dev/null 2>&1
+bash Panel.sh 
+fi
+
+if [[ $mode == "1" ]]     
+then
+echo -e "安装类型：\033[32m常规脚本\033[0m" ;  
+wget http://mirrors.52ml.org/Usual.sh >/dev/null 2>&1
+bash Usual.sh
+fi
+
+if [[ $mode == "2" ]]     
+then     
+echo -e "安装类型：\033[32mHTTP转接脚本\033[0m"; 
+wget http://mirrors.52ml.org/HTTP.sh >/dev/null 2>&1
+bash HTTP.sh 
+fi
+
+if [[ $mode == "3" ]]     
+then     
+echo -e "安装类型：\033[32m流控脚本\033[0m" ; 
+wget http://mirrors.52ml.org/Panel.sh >/dev/null 2>&1
+bash Panel.sh   
+fi
+
+if [[ $mode == "4" ]]     
+then     
+echo -e "安装类型：\033[32m一键无限制锐速脚本\033[0m" ;
+wget http://mirrors.52ml.org/serverSpeeder.sh >/dev/null 2>&1 
+bash serverSpeeder.sh  
+fi
+
+if [[ $mode -gt "4" ]] 
+then
+echo -e "安装类型：\033[32m流控脚本\033[0m" ; 
+wget http://mirrors.52ml.org/Panel.sh >/dev/null 2>&1
+bash Panel.sh 
+fi
+rm -- "$0"
+exit 0;
